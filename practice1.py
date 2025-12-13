@@ -29,10 +29,10 @@ def inputCourse():
 def inputMark(): 
     cid = input("Enter course ID to input marks for: ")
     for student in students:
-        mark_value = input(f"Enter mark for student {student['name']} (ID: {student['id']}): ")
+        markval = input(f"Enter mark for student {student['name']} (ID: {student['id']}): ")
         if cid not in mark:
             mark[cid] = {}
-        mark[cid][student['id']] = float(mark_value)
+        mark[cid][student['id']] = float(markval)
 
 def listStudent():
     print("List of students:")
@@ -47,9 +47,9 @@ def listCourse():
 def listMark():
     cid = input("Enter course ID to list marks for: ")
     print(f"Marks for course ID {cid}:")
-    for student_id, mark_value in mark[cid].items():
-        student_name = next((s['name'] for s in students if s['id'] == student_id), "Unknown")
-        print(f"Student ID: {student_id}, Name: {student_name}, Mark: {mark_value}")
+    for sid, markval in mark[cid].items():
+        sname = next((s['name'] for s in students if s['id'] == sid), "Unknown")
+        print(f"Student ID: {sid}, Name: {sname}, Mark: {markval}")
 
 
 inputStudent()
